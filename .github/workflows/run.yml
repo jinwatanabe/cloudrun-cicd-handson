@@ -51,7 +51,7 @@ jobs:
         uses: google-github-actions/setup-gcloud@v1
         with:
           service_account_key: ${{ secrets.GCLOUD_AUTH }}
-          project_id: cloudrun-go-handson-388909
+          project_id: ${{ secrets.PROJECT_ID }}
 
       - name: Configure docker for artifact registry
         run: |
@@ -62,8 +62,8 @@ jobs:
           echo "TAG=$(echo $GITHUB_REF | awk -F/ '{print $NF}')" >> $GITHUB_ENV
 
       - name: Build
-        run: docker build -t us-west1-docker.pkg.dev/cloudrun-go-handson-388909/go-api/api-image:${{ env.TAG }} .
+        run: docker build -t us-west1-docker.pkg.dev/${{ secrets.PROJECT_ID }}/go-api/api-image:${{ env.TAG }} .
 
       - name: Push
         run: |
-          docker push us-west1-docker.pkg.dev/cloudrun-go-handson-388909/go-api/api-image:${{ env.TAG }}
+          docker push us-west1-docker.pkg.dev/${{ secrets.PROJECT_ID }}/go-api/api-image:${{ env.TAG }}
