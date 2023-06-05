@@ -62,7 +62,7 @@ jobs:
           echo "TAG=$(echo $GITHUB_REF | awk -F/ '{print $NF}')" >> $GITHUB_ENV
 
       - name: Build
-        run: docker build -t us-west1-docker.pkg.dev/lightning-neko-talk/lt-api/api-image:${{ env.TAG }} ./lt-api
+        run: docker build -t us-west1-docker.pkg.dev/lightning-neko-talk/lt-api/api-image:${{ env.TAG }} .
 
       - name: Push
         run: |
