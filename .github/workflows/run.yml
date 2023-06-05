@@ -72,7 +72,7 @@ jobs:
         run: |-
           gcloud run deploy api-image \
             --project=${{ secrets.PROJECT_ID }} \
-            --image=us-west1-docker.pkg.dev/${ secrets.PROJECT_ID }}/go-api/api-image:${{ env.TAG }} \
+            --image=us-west1-docker.pkg.dev/${{ secrets.PROJECT_ID }}/go-api/api-image:${{ env.TAG }} \
             --region=us-west1 \
             --service-account=${{ secrets.SERVICE_ACCOUNT }} \
             --allow-unauthenticated
