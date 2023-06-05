@@ -51,7 +51,7 @@ jobs:
         uses: google-github-actions/setup-gcloud@v1
         with:
           service_account_key: ${{ secrets.GCLOUD_AUTH }}
-          project_id: lightning-neko-talk
+          project_id: cloudrun-go-handson-388909
 
       - name: Configure docker for artifact registry
         run: |
