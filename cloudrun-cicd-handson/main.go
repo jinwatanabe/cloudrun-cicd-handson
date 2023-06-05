@@ -19,8 +19,9 @@ type User struct {
 func main() {
 	user := os.Getenv("DB_USER")
 	password := os.Getenv("DB_PASSWORD")
-	// dsn := fmt.Sprintf("%s:%s@tcp(aws.connect.psdb.cloud)/[DB名]?tls=true", user, password)
-	dsn := fmt.Sprintf("%s:%s@tcp(aws.connect.psdb.cloud)/neko?tls=true", user, password)
+
+	// [DB名]は適宜変更してください
+	dsn := fmt.Sprintf("%s:%s@tcp(aws.connect.psdb.cloud)/[DB名]?tls=true", user, password)
 	db, err := gorm.Open(mysql.Open(dsn), &gorm.Config{})
 	if err != nil {
 		panic("failed to connect database")
